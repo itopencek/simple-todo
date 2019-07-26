@@ -1,0 +1,64 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(89,4,120);
+    background-image: radial-gradient(farthest-corner at 200% 0%,rgba(200, 33, 204, 0.8) 30%, rgba(223, 33, 227, 0) 100%);
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+#app{
+    padding: 10px 20px 10px 20px;
+    height: 100%;
+    box-sizing: border-box;
+}
+#app > div{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+ul{
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+button{
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    float: right;
+}
+h1{
+    padding: 0px 0px 10px 0px;
+    font-size: 3em;
+}
+li{
+    width:100%;
+    font-size: 1.3em;
+}
+.list-date{
+    float: right;
+}
+#bg-check{
+    top: 20%;
+    left: 10px;
+    position: absolute;
+    z-index: -1;
+}
+.list-check{
+    margin-right: 5px;
+}
+.page-button{
+ position: absolute;
+ color: white;
+ bottom: 10%;
+ right: 5%;
+ font-size: 2em;
+}
+.page-button:hover{
+    cursor: pointer;
+}
