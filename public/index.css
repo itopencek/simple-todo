@@ -5,8 +5,6 @@ html, body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: rgb(89,4,120);
-    background-image: radial-gradient(farthest-corner at 200% 0%,rgba(200, 33, 204, 0.8) 30%, rgba(223, 33, 227, 0) 100%);
     color: white;
     font-family: 'Lato', sans-serif;
 }
@@ -14,6 +12,8 @@ html, body {
     padding: 10px 20px 10px 20px;
     height: 100%;
     box-sizing: border-box;
+    background: rgb(89,4,120);
+    background-image: radial-gradient(farthest-corner at 200% 0%,rgba(200, 33, 204, 0.8) 30%, rgba(223, 33, 227, 0) 100%);
 }
 #app > div{
     height: 100%;
@@ -34,14 +34,19 @@ button{
 }
 h1{
     padding: 0px 0px 10px 0px;
-    font-size: 3em;
+    font-size: 4em;
 }
 li{
     width:100%;
-    font-size: 1.3em;
+    font-size: 1.8em;
+    max-width: 95%;
+    word-break: break-word;
+    margin-top: 5px;
 }
 .list-date{
     float: right;
+    font-size: 0.6em;
+    margin-top: 5px;
 }
 #bg-check{
     top: 20%;
@@ -61,4 +66,25 @@ li{
 }
 .page-button:hover{
     cursor: pointer;
+}
+#no-tasks{
+    vertical-align: center;
+    color: rgba(219,219,219,0.5);
+}
+.add-task{
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+    font-size: 3em;
+}
+input{
+    width: 96.5%;
+    height: 40px;
+    font-size: 1.8em;
+    border: 0px;
+    border-radius: 18px;
+    padding: 0 10px 0 10px;
+    word-break: break-all;
+    box-shadow: 1px 1px black;
+    box-shadow: 4px 6px 8px 0px rgba(75,75,75,0.5);
 }

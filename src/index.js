@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { List } from './list';
 import { AddTask } from './addtask';
-import { ChangePage } from './changepage'
+import { ChangePage } from './changepage';
 
 class ToDoApp extends React.Component {
     constructor(props){
@@ -10,21 +10,26 @@ class ToDoApp extends React.Component {
 
         this.state = {
             tasks: [{
-                'text': 'test #1',
-                'category': 'red',
-                'date': 'mon',
+                'text': 'first test #1',
+                'category': 'blue',
+                'date': ' wed'
             }],
             page: true,
         };
         this.newTask = this.newTask.bind(this);
         this.handlePage = this.handlePage.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     newTask(newTask){
         let allTasks = this.state.tasks;
+        let date = new Date();
+        let today = date.getFullYear() + '-' + (String(date.getMonth()+1).length < 2 ? '0' + (date.getMonth()+1) : (date.getMonth()+1)) + '-' + (String(date.getDate().length) < 2 ?  '0'+ date.getDate() : date.getDate());
+        if(newTask.date === "") newTask.date = today;
+        
         allTasks.push({
-            'text': newTask,
-            'category': 'blue',
-            'date': 'tue',
+            'text': newTask.text,
+            'category': newTask.category,
+            'date': newTask.date,
         });
 
         this.setState({
@@ -36,6 +41,14 @@ class ToDoApp extends React.Component {
             page: this.state.page ? false : true,
         })
     }
+    handleDelete(e){
+        const key = e.target.getAttribute('data-key');
+        let newTasks = this.state.tasks;
+        newTasks.splice(key,1);
+        this.setState({
+            tasks: newTasks
+        });
+    }
     render(){
         if(this.state.page){
             return (
@@ -44,7 +57,7 @@ class ToDoApp extends React.Component {
                         <path d="M432 64l-240 240-112-112-80 80 192 192 320-320z"></path>
                     </svg>
                     <h1>todo <br/>list</h1>
-                    <List tasks={ this.state.tasks }/>
+                    <List tasks={ this.state.tasks } handleDelete={ this.handleDelete }/>
                     <ChangePage page= { this.handlePage }/>
                 </div>
             );

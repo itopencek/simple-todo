@@ -19,7 +19,7 @@ export class ChangePage extends React.Component {
         if(this.state.main){
             return <span className="page-button" onClick={ this.handleClick }>new</span>;
         }else{
-            return <span className="page-button" onClick={ this.handleClick }>list</span>;
+            return <span className="page-button" onClick={ this.handleClick }>back</span>;
         }
     }
 }
