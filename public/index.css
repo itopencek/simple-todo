@@ -88,3 +88,15 @@ input{
     box-shadow: 1px 1px black;
     box-shadow: 4px 6px 8px 0px rgba(75,75,75,0.5);
 }
+.added-task{
+    font-size: 1.3em;
+    background-color: white;
+    color: rgba(163, 28, 165, 0.8);
+    border-radius: 12px;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 4px 6px 8px 0px rgba(75,75,75,0.5);
+}
+.added-task > h3{
+    margin: 0px;
+}
