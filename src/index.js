@@ -15,6 +15,11 @@ class ToDoApp extends React.Component {
                 'date': ' wed'
             }],
             page: true,
+            deleted: [{
+                'text': '',
+                'category': '',
+                'date': ''
+            }],
         };
         this.newTask = this.newTask.bind(this);
         this.handlePage = this.handlePage.bind(this);
@@ -23,6 +28,8 @@ class ToDoApp extends React.Component {
     newTask(newTask){
         let allTasks = this.state.tasks;
         let date = new Date();
+
+        // setting date to acceptable format
         let today = date.getFullYear() + '-' + (String(date.getMonth()+1).length < 2 ? '0' + (date.getMonth()+1) : (date.getMonth()+1)) + '-' + (String(date.getDate().length) < 2 ?  '0'+ date.getDate() : date.getDate());
         if(newTask.date === "") newTask.date = today;
         
@@ -42,17 +49,18 @@ class ToDoApp extends React.Component {
         })
     }
     handleDelete(e){
-        const key = e.target.getAttribute('data-key');
-        let newTasks = this.state.tasks;
-        newTasks.splice(key,1);
+        const key = e;
+        const newTasks = this.state.tasks;
+        const deleted = newTasks.splice(key,1);
         this.setState({
-            tasks: newTasks
+            tasks: newTasks,
+            deleted: deleted
         });
     }
     render(){
         if(this.state.page){
             return (
-                <div>
+                <div id="first-page">
                     <svg id="bg-check" fill="#AF21B3" version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <path d="M432 64l-240 240-112-112-80 80 192 192 320-320z"></path>
                     </svg>
@@ -63,7 +71,7 @@ class ToDoApp extends React.Component {
             );
         }else{
             return (
-                <div>
+                <div id="second-page">
                     <svg id="bg-check" fill="#AF21B3" version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <path d="M432 64l-240 240-112-112-80 80 192 192 320-320z"></path>
                     </svg>

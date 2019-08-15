@@ -1,4 +1,4 @@
-html, body {
+html, body, main {
     margin: 0;
     padding: 0;
     top: 0;
@@ -58,11 +58,11 @@ li{
     margin-right: 5px;
 }
 .page-button{
- position: absolute;
- color: white;
- bottom: 10%;
- right: 5%;
- font-size: 2em;
+    position: absolute;
+    color: white;
+    bottom: 10%;
+    right: 5%;
+    font-size: 2em;
 }
 .page-button:hover{
     cursor: pointer;
@@ -72,10 +72,12 @@ li{
     color: rgba(219,219,219,0.5);
 }
 .add-task{
-    position: absolute;
-    right: 5%;
-    bottom: 20%;
+    text-align: left;
     font-size: 3em;
+}
+#first-page > div {
+    max-height: 50%;
+    overflow-y: auto;
 }
 input{
     width: 96.5%;
@@ -99,4 +101,35 @@ input{
 }
 .added-task > h3{
     margin: 0px;
+}
+.category-list{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+.category-item{
+    box-sizing: content-box;
+    color: black;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    margin: 0 15px 0 15px;
+    box-shadow: 4px 6px 8px 0px rgba(75,75,75,0.5);
+}
+#b52838{
+    background-color: #b52838;
+}
+#MidnightBlue{
+    background-color: MidnightBlue;
+}
+#green{
+    background-color: green;
+}
+#white{
+    background-color: white;
+}
+.category-chosen{
+    background: url(checkmark.svg) center no-repeat;
+    background-size: 60%;
 }

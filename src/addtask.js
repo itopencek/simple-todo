@@ -8,7 +8,7 @@ export class AddTask extends React.Component {
             inputData: {
                 'text': '',
                 'date': '',
-                'category': 'red',
+                'category': '#b52838',
             },
             addedNew: false,
         }
@@ -16,6 +16,26 @@ export class AddTask extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleDate = this.handleDate.bind(this);
         this.handleDeleteMessage = this.handleDeleteMessage.bind(this);
+        this.handleCategory = this.handleCategory.bind(this);
+    }
+    handleCategory(color){
+        let data = this.state.inputData;
+        if(color === 'b52838'){ color = '#b52838'};
+        this.setState({
+            inputData: {
+                'text': data.text,
+                'date': data.date,
+                'category': color
+            }
+        });
+
+        const items = document.getElementsByClassName('category-list')[0].childNodes;
+        const thisItem = document.getElementById(color);
+        console.log(items)
+        items.forEach(item => {
+            item.classList.remove('category-chosen');
+        });
+        thisItem.classList.add('category-chosen');
     }
     handleDate(e){
         let data = this.state.inputData;
@@ -45,7 +65,7 @@ export class AddTask extends React.Component {
             inputData: {
             'text': '',
             'date': '',
-            'category': 'red',
+            'category': '#b52838',
             } 
         });
     }
@@ -65,7 +85,12 @@ export class AddTask extends React.Component {
                     <h2>date</h2>
                     <input type='date' max='2040-01-01' defaultValue={today} onChange={ this.handleDate } />
                     <h2>category</h2>
-    
+                    <ul className='category-list'>
+                        <li className='category-item category-chosen' id='b52838' onClick={ () => { this.handleCategory('b52838') } }></li>
+                        <li className='category-item' id='MidnightBlue' onClick={ () => { this.handleCategory('MidnightBlue') } }></li>
+                        <li className='category-item' id='white' onClick={ () => { this.handleCategory('white') } }></li>
+                        <li className='category-item' id='green' onClick={ () => { this.handleCategory('green') } }></li>
+                    </ul>
                     <h1 className='add-task' onClick={ this.handleClick }>add</h1>
                 </div>
             );   
@@ -76,8 +101,14 @@ export class AddTask extends React.Component {
                     <h2>description</h2>
                     <input onChange={ this.handleChange } autoFocus value={ this.state.inputData.text }/>
                     <h2>date</h2>
-                    <input type='date' max='2040-01-01' defaultValue={ today } onChange={ this.handleDate } value={ this.state.inputData.date }/>
+                    <input type='date' max='2040-01-01' defaultValue={ today } onChange={ this.handleDate }/>
                     <h2>category</h2>
+                    <ul className='category-list'>
+                        <li className='category-item category-chosen' id='b52838' onClick={ () => { this.handleCategory('b52838') } }></li>
+                        <li className='category-item' id='MidnightBlue' onClick={ () => { this.handleCategory('MidnightBlue') } }></li>
+                        <li className='category-item' id='white' onClick={ () => { this.handleCategory('white') } }></li>
+                        <li className='category-item' id='green' onClick={ () => { this.handleCategory('gree') } }></li>
+                    </ul>
                     <h1 className='add-task' onClick={ this.handleClick }>add</h1>
                 </div>
             );   
