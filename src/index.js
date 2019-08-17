@@ -10,9 +10,9 @@ class ToDoApp extends React.Component {
 
         this.state = {
             tasks: [{
-                'text': 'first test #1',
+                'text': 'Click on the checkmark to delete your task!',
                 'category': 'blue',
-                'date': ' wed'
+                'date': 'date'
             }],
             page: true,
             deleted: [{

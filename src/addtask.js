@@ -20,6 +20,7 @@ export class AddTask extends React.Component {
     }
     handleCategory(color){
         let data = this.state.inputData;
+        const thisItem = document.getElementById(color);
         if(color === 'b52838'){ color = '#b52838'};
         this.setState({
             inputData: {
@@ -30,7 +31,6 @@ export class AddTask extends React.Component {
         });
 
         const items = document.getElementsByClassName('category-list')[0].childNodes;
-        const thisItem = document.getElementById(color);
         console.log(items)
         items.forEach(item => {
             item.classList.remove('category-chosen');
@@ -79,7 +79,7 @@ export class AddTask extends React.Component {
         let today = date.getFullYear() + '-' + (String(date.getMonth()+1).length < 2 ? '0' + (date.getMonth()+1) : (date.getMonth()+1)) + '-' + (String(date.getDate().length) < 2 ?  '0'+ date.getDate() : date.getDate());
         if(this.state.addedNew === false){
             return(
-                <div>
+                <div id='add-page'>
                     <h2>description</h2>
                     <input onChange={ this.handleChange } autoFocus/>
                     <h2>date</h2>
@@ -96,8 +96,8 @@ export class AddTask extends React.Component {
             );   
         } else {
             return(
-                <div>
-                    <div className='added-task' onClick={ this.handleDeleteMessage }><h3>Task has been added!</h3></div>
+                <div id='add-page'>
+                    <div className='added-task' onClick={ this.handleDeleteMessage }><h3>Task has been added!</h3><img src='x-mark.svg' alt='X'></img></div>
                     <h2>description</h2>
                     <input onChange={ this.handleChange } autoFocus value={ this.state.inputData.text }/>
                     <h2>date</h2>
@@ -107,7 +107,7 @@ export class AddTask extends React.Component {
                         <li className='category-item category-chosen' id='b52838' onClick={ () => { this.handleCategory('b52838') } }></li>
                         <li className='category-item' id='MidnightBlue' onClick={ () => { this.handleCategory('MidnightBlue') } }></li>
                         <li className='category-item' id='white' onClick={ () => { this.handleCategory('white') } }></li>
-                        <li className='category-item' id='green' onClick={ () => { this.handleCategory('gree') } }></li>
+                        <li className='category-item' id='green' onClick={ () => { this.handleCategory('green') } }></li>
                     </ul>
                     <h1 className='add-task' onClick={ this.handleClick }>add</h1>
                 </div>
